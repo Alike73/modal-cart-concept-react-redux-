@@ -1,38 +1,553 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+:root {
+  --size: calc(1vh + 1vw);
+  --gold: #ffb338;
+  --whiteGold: #ffffff;
+  --light-shadow: #77571d;
+  --navy: #658864;
+  --darkNavy: #7fa494;
+  --deepNavy: #247e57;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: hsl(34deg 18% 58%);
+  background-image: repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, 0.2) 5px, hsla(197, 62%, 11%, 0.2) 10px,
+    hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.2) 35px, hsla(5, 53%, 63%, 0.2) 40px,
+    hsla(197, 62%, 11%, 0.2) 40px, hsla(197, 62%, 11%, 0.2) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
+    hsla(5, 53%, 63%, 0.2) 60px, hsla(5, 53%, 63%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 80px,
+    hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.2) 90px, hsla(5, 53%, 63%, 0.2) 110px,
+    hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(197, 62%, 11%, 0.2) 120px, hsla(197, 62%, 11%, 0.2) 140px
+    ),
+  repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.2) 5px, hsla(197, 62%, 11%, 0.2) 10px,
+    hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.2) 35px, hsla(5, 53%, 63%, 0.2) 40px,
+    hsla(197, 62%, 11%, 0.2) 40px, hsla(197, 62%, 11%, 0.2) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,
+    hsla(5, 53%, 63%, 0.2) 60px, hsla(5, 53%, 63%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 70px, hsla(35, 91%, 65%, 0.2) 80px,
+    hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.2) 90px, hsla(5, 53%, 63%, 0.2) 110px,
+    hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(197, 62%, 11%, 0.2) 140px, hsla(197, 62%, 11%, 0.2) 160px
+  );
+  background-attachment: fixed;
+}
+
+.Header {
+  background-color: #958577;
+  background-image:
+  repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+  linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+  background-size: 70px 120px;
+}
+
+.headerDivider {
+  width: 100%;
+  height: 5px;
+  background-image: repeating-linear-gradient( 5deg, var(--gold) 0% , var(--light-shadow) 23%, var(--gold) 31%);
+}
+
+.HeaderTitle {
+  font-family: 'Marck Script', cursive;
+  font-size: clamp(42px, calc(var(--size)*2.7), 94px);
+  font-weight: bold;
+  line-height: 1;
+  padding: 8px 20px 8px 2px;
+  background-image: repeating-linear-gradient( 5deg, var(--gold) 0% , var(--light-shadow) 23%, var(--gold) 31%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 10s linear infinite;
+  text-shadow: 0px 2px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+@keyframes textclip {
+  0% {
+    background-position: 0% 0%;
+    
+  }
+  16.66% {
+    background-position: 100% 0%; 
+  }
+  33.32% {
+    background-position: 100% 100%; 
+  }
+  49.98% {
+    background-position: 0% 0%; 
+  }
+  66.64% {
+    background-position: 0% 100%; 
+  }
+  83.3% {
+    background-position: 100% 100%; 
+  }
+  100% {
+    background-position: 0% 0%; 
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.headerText {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Marck Script', cursive;
+  font-style: italic;
+  line-height: 1.5;
+  font-size: clamp(22px, calc(var(--size)*1.2), 36px);
+  color: #FFFFFF;
+  text-shadow: 0px 4px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.Menu {
+  font-family: 'Marck Script', cursive;
+  font-size: clamp(42px, calc(var(--size)*2.7), 80px);
+  font-weight: bold;
+  font-style: italic;
+  line-height: 1;
+  color: var(--whiteGold);
+  text-shadow: 0px 4px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.ourMenuTitle {
+  display: inline-block;
+  padding: 0 0 10px;
+  border-bottom: 3px solid #FFFFFF;
+}
+
+/* ---------------------------------------------------------------------------------- */
+.frame-outer {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  border: 10px solid #D7CDC7;
+  padding: 10px;
+}
+
+.frame-inner {
+  text-align: center;
+  position: relative;
+  border: 10px solid #D7CDC7;
+  padding: 10px;
+}
+
+.frame-outer:before, 
+.frame-outer:after, 
+.frame-inner:before, 
+.frame-inner:after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #F9F9F9;
+  background-image: linear-gradient(90deg, #DB9E3D 33%, rgba(255,255,255,0) 33%, rgba(255,255,255,0) 66%, #DB9E3D 66%, #DB9E3D),
+  linear-gradient(90deg, #DB9E3D 33%, rgba(255,255,255,0) 33%, rgba(255,255,255,0) 66%, #DB9E3D 66%, #DB9E3D);
+  background-repeat: no-repeat;
+  background-size: 30px 10px;
+  background-position: 0 0, 0 20px;
+}
+
+.frame-outer:before {
+  left: -10px;
+  top: -10px;
+  z-index: 3;
+}
+
+.frame-outer:after {
+  right: -10px;
+  top: -10px;
+  z-index: 3;
+  background-position: 10px 0, 10px 20px;
+}
+
+.frame-inner:before {
+  left: -30px;
+  bottom: -30px;
+  background-position: 0 10px, 0px 30px;
+}
+
+.frame-inner:after {
+  right: -30px;
+  bottom: -30px;
+  background-position: 10px 10px, 10px 30px;
+}
+
+.frame-inner p {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  line-height: 1.5;
+  font-size: clamp(14px, calc(var(--size)*1.2), 24px);
+  color: #FFFFFF;
+  text-shadow: 0px 4px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+/* ---------------------------------------------------------------------------------- */
+.logoRestaurant {
+  width: 250px;
+}
+
+.italianFlag,
+.cartIcon {
+  width: 100px;
+}
+
+.cartBox {
+  position: relative;
+}
+
+.dollarInCart {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.quantityBox {
+  position: absolute;
+  top: 15%;
+  left: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+  height: 30%;
+  background: red;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 10%;
+  transform: translate(-30%, -75%);
+  cursor: pointer;
+}
+
+.quantityBoxValue {
+  font-family: 'Open Sans', sans-serif;
+  display: inline-block;
+  font-size: clamp(20px, calc(var(--size)*1.2), 20px);
+  font-weight: bold;
+  background: var(--deepNavy);;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 2px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.HeaderCheckout,
+.checkoutModalFooter {
+  background-color: #958577;
+  background-image:
+  repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+  linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+  background-size: 70px 120px;
+}
+
+.checkoutBackground {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+/* --------------------------------------------------------------------- */
+.dishesLineBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 80px;
+}
+
+.modalLogoBox {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.catInTheCart {
+  width: 80px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.CartItemsTitle {
+  font-family: 'Open Sans', sans-serif;
+  color: #658864;
+  font-weight: 600;
+  text-shadow: 0px 1px 2px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.ModalTotal,
+.ModalImageDishName {
+  color: var(--darkNavy);
+}
+
+.ModalText {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  line-height: 1.5;
+  font-size: clamp(14px, calc(var(--size)*1.2), 24px);
+  color: var(--darkNavy);
+}
+
+.trashBox {
+  transition: all .2s ease-in-out;
+}
+
+.trashBox:hover {
+  transform: translateY(-5px);
+  scale: 1.1;
+}
+
+.trashBox:hover .fa-trash-can {
+  color: #DC0000;
+}
+
+.fa-trash-can {
+  color: #b68536;
+  font-size: clamp(20px, calc(var(--size)*1.2), 34px);
+  text-shadow: 0px 1px 2px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+  transition: all .2s ease-in-out;
+}
+
+.modalTextValue {
+  color: #658864;
+  font-weight: 600;
+  text-shadow: 0px 1px 2px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.totalValue {
+  font-family: 'Open Sans', sans-serif;
+  display: inline-block;
+  color: #658864;
+  font-weight: 600;
+  text-shadow: 0px 1px 2px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.product .product-description, main[role=main] {
+  *zoom: 1;
+}
+.product .product-description:after, main[role=main]:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.CardText {
+  margin: 0 0 30px;
+}
+
+.CardTitle {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  color: #9bb6aa;
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-image {
+  max-width: 100%;
+}
+
+.quantityField {
+  display: inline-block;
+  padding: 5px 15px;
+  border-top: 1px solid #9bb6aa;
+  border-bottom: 1px solid #9bb6aa;
+  font-size: 18px;
+  font-weight: bold;
+  color: #9bb6aa;
+  text-shadow: 0px 1px 2px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.PlusBtn,
+.MinusBtn {
+  border: 1px solid #9bb6aa;
+  font-size: 18px;
+  color: #9bb6aa;
+  padding: 0 10px;
+}
+
+.addBtn {
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  border-top: 2px solid #9bb6aa;
+  padding: 10px;
+  background: transparent;
+  font-size: clamp(18px, calc(var(--size)*1.2), 22px);
+  color: var(--navy);
+  transition: all .2s ease-in-out;
+}
+
+.addBtn:hover {
+  background: #9bb6aa;
+  color: #FFFFFF;
+}
+
+figure {
+  margin: 0;
+  line-height: 0;
+}
+
+main[role=main] {
+  max-width: 500px;
+  margin: 20px auto;
+  position: relative;
+}
+
+/* --------------------------------------------- */
+.wrap {
+  background: linear-gradient(90deg, #EFEFE7 50%, #abafaf 50%);
+  position: relative;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.wrap:before, 
+.wrap:after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 10px;
+  background: linear-gradient(90deg, #abafaf 50%, #EFEFE7 50%);
+  left: 25%;
+}
+
+.wrap:before {top: 15px;}
+.wrap:after {bottom: 15px;}
+
+/* --------------------------------------------- */
+.dishImgModal {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.product {
+  background: #fff;
+  max-width: 300px;
+  position: relative;
+  z-index: 15;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.product .product-description {
+  position: relative;
+  z-index: 15;
+  background: #fff;
+}
+
+.product .product-description .info {
+  padding: 15px;
+  color: #aaa;
+  font-size: 0.85em;
+  width: 75%;
+  float: left;
+}
+
+.product .product-description .price {
+  width: 25%;
+  float: left;
+  color: var(--darkNavy);
+  font-size: 3.5em;
+  position: relative;
+  margin-top: 25px;
+}
+.product .product-description .price::before {
+  content: "$";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  font-size: 0.35em;
+}
+
+.categoryButtonSelected {
+  background: green;
+  border: 1px solid #FFFFFF;
+  outline-offset: 3px;
+  outline: 1px solid #FFFFFF;
+}
+
+.categoryButton {
+  cursor: pointer;
+  margin:  5px;
+  padding: 5px;
+  transition: all .1s ease-in-out;
+}
+
+.categoryButton:hover {
+  background: #9bb6aa;
+  color: #000000;
+}
+
+.categoryButtonSelected:hover {
+  background: greenyellow;
+}
+
+.CategoryTitle {
+  font-family: 'Marck Script', cursive;
+  font-size: clamp(32px, calc(var(--size)*1.7), 44px);
+  color: #FFFFFF;
+  text-shadow: 0px 4px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.fa-heart {
+  background: #DC0000;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 2px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+}
+
+.myLogo {
+  width: 100px;
+}
+
+.thankCat,
+.thankChef {
+  width: 80px;
+}
+
+@media all and (max-width: 500px) {
+  .dishesLineBox {
+    gap: 30px;
   }
-  to {
-    transform: rotate(360deg);
+  .chefLogo {
+    width: 150px;
+  }
+  .logoRestaurant {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #content {
+    margin-top: 60px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .chefLogo {
+    width: 110px;
   }
 }
