@@ -48,7 +48,7 @@ const Cart = () => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-warning me-auto" data-bs-dismiss="modal"><i className="fa-solid fa-house-user"></i> Home</button>
-                            <button type="button" className="btn btn-secondary w-75" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            <button type="button" className="btn btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                             <i className="fa-regular fa-credit-card"></i> Check out
                             </button>
                         </div>
